@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-UnEarthed
----
-=======
 # UnEarthed
->>>>>>> 98ea2b3dfe9a49f8044e43978b47fa17b4a33de2
 ```
 unearthed
 ├─ .git
