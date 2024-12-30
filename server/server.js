@@ -4,10 +4,10 @@ import giftsRouter from './routes/gifts.js'
 const app = express()
 // middleware configuration
 //serve the files from the client\public directory
-app.use('/public', express.static('./public'))
+app.use('/public', express.static('/client/public'))
 
 //serve the files from the client\public\scripts directory
-app.use('/scripts', express.static('./public/scripts'))
+app.use('/scripts', express.static('/client/public/scripts'))
 
 
 // adding /gifts endpoint

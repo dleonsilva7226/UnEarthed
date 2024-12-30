@@ -1,14 +1,14 @@
 const renderGift = async () => {
-    
     const requestedID = parseInt(window.location.href.split('/').pop())
     const response = await fetch('/gifts')
     const data = await response.json()
 
     const giftContent = document.getElementById('gift-content')
     let gift
-
-    if (data) {
-        gift = data.find((currGift) => (currGift.id === requestedID))
+    if (data) { 
+        gift = data.find((currGift) => {
+            return currGift.id === requestedID
+        })
     }
     if (gift) {
         document.getElementById('image').src = gift.image

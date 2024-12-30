@@ -2,7 +2,6 @@ const renderGifts = async () => {
     const response = await fetch('/gifts')
     const data = await response.json()
 
-
     const mainContent = document.getElementById('main-content')
 
     if (data) {
@@ -32,7 +31,7 @@ const renderGifts = async () => {
             bottomContainer.appendChild(audience)
             
             const readMoreLink = document.createElement('a')
-            readMoreLink.textContent = 'Read More >'
+            readMoreLink.textContent = 'Read More'
             readMoreLink.href = `/gifts/${gift.id}`
             readMoreLink.setAttribute('role', 'button')
             bottomContainer.appendChild(readMoreLink)
