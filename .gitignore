@@ -25,3 +25,6 @@ dist-ssr
 
 # Deployed assets
 server/public
+
+# Things ignored
+server/.env
