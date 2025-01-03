@@ -19,10 +19,13 @@ const createGiftsTable = async () => {
         submittedOn TIMESTAMP NOT NULL
     )
     `
+    // const res = await pool.query(createTableQuery)
+    // console.log("HELLO" + res)
     try {
         const res = await pool.query(createTableQuery)
         console.log('Gifts table created successfully')
     } catch (error) {
+        console.log("HELLO: " + res)
         console.error('Error creating gifts table', error)
     }
     
@@ -30,11 +33,16 @@ const createGiftsTable = async () => {
 
 
 const seedGiftsTable = async () => {
+    // causing error
     await createGiftsTable()
 
     giftData.forEach((gift) => {
         const insertQuery = {
-            text: 'INSERT INTO gifts (name, pricePoint, audience, image, description, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7)'
+            text: 
+            `
+            INSERT INTO gifts (name, pricePoint, audience, image, description, submittedBy, submittedOn) 
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            `
         }
         const values = [
             gift.name,
@@ -45,8 +53,9 @@ const seedGiftsTable = async () => {
             gift.submittedBy,
             gift.submittedOn
         ]
-
+        // causing error
         pool.query(insertQuery, values, (err, res) => {
+            
             if (err) {
                 console.error("Error inserting data", err)
                 return
